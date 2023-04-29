@@ -11,7 +11,7 @@ app.use(express.json());
 app.use("/customer",session({secret:"fingerprint_customer",resave: true, saveUninitialized: true}))
 
 app.use("/customer/auth/*", function auth(req,res,next){
-
+function auth(req, res, next) {
   // extract username and password from the request body
   const { username, password } = req.body;
 
@@ -29,7 +29,7 @@ app.use("/customer/auth/*", function auth(req,res,next){
     // return an error response if the credentials are invalid
     res.status(401).send('Invalid username or password');
   }
-
+}
 
 });
  
